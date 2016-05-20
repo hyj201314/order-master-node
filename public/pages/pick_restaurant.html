@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="../lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../model/Restaurant.js"></script>
+    <script type="text/javascript" src="../lib/doT.js"></script>
+    <script type="text/javascript" src="../controller/pick_restaurant_controller.js"></script>
+    <script id="restaurant_tmpl" type="text/x-dot-template">
+        {{? it && it.length > 0}}
+        {{~ it :value}}
+        <li onclick={SetRestaurantInfo({{!JSON.stringify(value.RestaurantName)}},{{!JSON.stringify(value.id)}}),window.location='order-meal.html'} class="list-style-3">
+            <a>{{=value.RestaurantName}}</a>
+        </li>
+        {{~}}
+        {{??}}
+        <li>there is no data.</li>
+        {{?}}
+    </script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/order_master.css">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="PickRestaurantController()">
+<button class = "back" onclick="window.location='order-meal.html'">back</button>
+<div>
+    <header>
+        选餐厅
+    </header>
+</div>
+<ul id="restaurant_list">
+
+</ul>
+
+</body>
+</html>

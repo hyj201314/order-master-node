@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="../lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../model/NameAndForm.js"></script>
+    <script type="text/javascript" src="../controller/order_form_controller.js"></script>
+    <script type="text/javascript" src="../lib/doT.js"></script>
+    <script id="show_name_ordered_count_tmpl" type="text/x-dot-template">
+        <div class="order_meal_count">{{=it.length}}人已订</div>
+    </script>
+    <script id="show_total_tmpl" type="text/x-dot-template">
+        <div class="all_subtotal">
+            {{=it.orderedNameCount}}人已订,{{=it.notOrderedNameCount}}人未订，总计{{=it.sum}}元
+        </div>
+    </script>
+    <script id="show_list_ordered_tmpl" type="text/x-dot-template">
+        {{? it && it.length > 0}}
+        {{~ it :value}}
+        <li class="order_meal_list">
+            <p class="name">
+                {{=value.Name}}
+            </p>
+            <p class="set_meal">
+                {{=value.RestaurantMeal}}
+            </p>
+            <span class="price_show" style="color: {{=value.priceColor}}">
+                {{=value.MealPrice}}
+            </span>
+        </li>
+        {{~}}
+        {{??}}
+        <li>there is no data.</li>
+        {{?}}
+    </script>
+    <script id="show_name_not_ordered_tmpl" type="text/x-dot-template">
+        <div class="order_meal_count">{{=it.length}}人未订</div>
+        {{? it && it.length > 0}}
+        {{~ it :value}}
+        <li class="order_meal_list">
+            <p class="name">
+                {{=value}}
+            </p>
+        </li>
+        {{~}}
+        {{??}}
+        <li>there is no data.</li>
+        {{?}}
+    </script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/order_master.css">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="show_order_list()">
+<div>
+    <div class="show_order"><button class = "back" onclick="window.location='main_page.html'">back</button>订单显示</div>
+</div>
+<div id="show_name_ordered_count">
+
+</div>
+<div id="show_list_ordered">
+
+</div>
+<div id="show_name_not_ordered_and_count">
+
+</div>
+<div id="show_total">
+
+</div>
+</body>
+</html>

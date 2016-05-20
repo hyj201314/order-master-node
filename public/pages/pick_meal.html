@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/order_master.css">
+    <script type="text/javascript" src="../lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../model/Meal.js"></script>
+    <script type="text/javascript" src="../lib/doT.js"></script>
+    <script type="text/javascript" src="../controller/pick_meal_controller.js"></script>
+    <script type="text/javascript" src="../controller/order_meal_controller.js"></script>
+    <script id="meal_tmpl" type="text/x-dot-template">
+        {{? it && it.length > 0}}
+        {{~ it :value}}
+        <li onclick={SetMealName({{!JSON.stringify(value.MealName)}},{{!JSON.stringify(value.MealPrice)}}),window.location='order-meal.html'} class="list-style-3">
+            <a>{{=value.MealName}}</a>
+        </li>
+        {{~}}
+        {{??}}
+        <li>there is no data.</li>
+        {{?}}
+    </script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="PickMealController()">
+<button class = "back" onclick="window.location='order-meal.html'">back</button>
+<div>
+    <header>
+        选套餐
+    </header>
+</div>
+<ul id="meal_list">
+
+</ul>
+
+</body>
+</html>

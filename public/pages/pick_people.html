@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="../lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../model/People.js"></script>
+    <script type="text/javascript" src="../lib/doT.js"></script>
+    <script type="text/javascript" src="../controller/pick_people_controller.js"></script>
+    <script id="name_tmpl" type="text/x-dot-template">
+        {{? it && it.length > 0}}
+        {{~ it :value}}
+        <li onclick={SetPeopleName({{!JSON.stringify(value.Name)}}),window.location='order-meal.html'} class="list-style-3">
+                <a>{{=value.Name}}</a>
+        </li>
+        {{~}}
+        {{??}}
+        <li>there is no data.</li>
+        {{?}}
+    </script>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/order_master.css">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body onload="PickPeopleController()">
+<button class = "back" onclick="window.location='order-meal.html'">back</button>
+
+<div>
+    <header>
+        选人
+    </header>
+</div>
+<ul id="name_list">
+
+</ul>
+</body>
+</html>

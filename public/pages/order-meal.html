@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../model/People.js"></script>
+    <script type="text/javascript" src="../model/Restaurant.js"></script>
+    <script type="text/javascript" src="../model/Meal.js"></script>
+    <script type="text/javascript" src="../lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../controller/order_meal_controller.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../stylesheets/order_master.css">
+</head>
+<body>
+<button class = "back" onclick="window.location='main_page.html'">back</button>
+<div>
+    <header>
+        订餐
+    </header>
+</div>
+<div class="button-content">
+    <ul class="list-style-2">
+        <li>
+            <h4>人：</h4>
+            <input id="name_id" class="input_one" value="" disabled>
+            <a class="btn" type="button" href="pick_people.html">选人</a>
+        </li>
+        <li>
+            <h4>餐厅：</h4>
+            <input id="restaurant_id" class="input_one" value="" disabled>
+            <a class="btn" type="button" href="pick_restaurant.html">选餐厅</a>
+        </li>
+        <li>
+            <h4>套餐：</h4>
+            <input id="meal_id" class="input_one" value="" disabled>
+            <a class="btn_two" type="button" id="pick_meal" onclick="OrderMealController.click_pick_meal()">选套餐</a>
+        </li>
+        <li>
+            <a id="ensure" class="btn_two" type="button" onclick="OrderMealController.click_button()" >确认</a>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>
